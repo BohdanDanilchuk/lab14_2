@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 2</title>
+</head>
+<body>
+    <h1>Одновимірний масив</h1>
+    <div id="arrayDisplay"></div>
+    <script>
+
+        const arrayLength = 15;
+        let array = new Array(arrayLength);
+
+        for (let i = 0; i < arrayLength; i++) {
+            array[i] = Math.floor(Math.random() * 100); 
+        }
+
+        document.getElementById("arrayDisplay").innerText = "Масив: " + array.join(", ");
+
+        let minIndex = 0;
+        for (let i = 1; i < arrayLength; i++) {
+            if (array[i] < array[minIndex]) {
+                minIndex = i;
+            }
+        }
+
+        if (minIndex < arrayLength - 1) {
+            let temp = array[minIndex];
+            array[minIndex] = array[minIndex + 1];
+            array[minIndex + 1] = temp;
+        }
+
+        document.getElementById("arrayDisplay").innerText += "\nОновлений масив: " + array.join(", ");
+    </script>
+</body>
+</html>
